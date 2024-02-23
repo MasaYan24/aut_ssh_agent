@@ -4,7 +4,7 @@
 ```sh
 function auto_ssh_agent() {
     result=$(find /tmp -type d -name 'ssh-XXXXXX*' -printf '%T@ %p\n' | sort -n | tail -n 1)
-    t=$(echo "$result" | awk '{print $1}')
+    # t=$(echo "$result" | awk '{print $1}')
     p=$(echo "$result" | awk '{print $2}')
     f=$(find $p -name 'agent*')
     agent_pid=$(expr ${f#*agent.} + 1)
